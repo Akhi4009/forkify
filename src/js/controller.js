@@ -1,7 +1,5 @@
  import * as model from "./model.js";
  import recipeView from "./views/recipeView.js";
- 
- import icons from 'url:../img/icons.svg';
  import 'core-js/stable';
  import 'regenerator-runtime/runtime'
 
@@ -28,12 +26,16 @@ try {
   
  
   } catch (error) {
-  alert(error)
+ recipeView.renderError()
  }
 
 }
 
- ['hashchange', 'load'].forEach(ev=>window.addEventListener(ev, controlRecipes))
+const init = function(){
+recipeView.addHandlerRender(controlRecipes);
+}
+
+init()
 
 
 
