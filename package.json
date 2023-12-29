@@ -1,0 +1,20 @@
+{
+  "name": "fokify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "^3.35.0",
+    "parcel": "^2.10.3",
+    "regenerator-runtime": "^0.14.1",
+    "sass": "^1.69.6"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.10.3"
+  }
+}
