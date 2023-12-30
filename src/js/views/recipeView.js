@@ -11,6 +11,18 @@ import View from "./view.js"
         window.addEventListener(ev, handler
         ));
     }
+
+
+ addHandlerUpdateServing(handler){
+
+  this._parentElement.addEventListener('click',function(e){
+    const btn = e.target.closest('.btn--tiny');
+    if(!btn) return;
+   const {updateTo} = btn.dataset;
+   if(+updateTo > 0) handler(Number(updateTo))
+   
+  })
+ }
       
 
     _generateMarkup(){
@@ -39,12 +51,12 @@ import View from "./view.js"
        <span class="recipe__info-text">servings</span>
 
        <div class="recipe__info-buttons">
-         <button class="btn--tiny btn--increase-servings">
+         <button class="btn--tiny btn--increase-servings" data-update-to="${this._data.serving - 1}">
            <svg>
              <use href="${icons}#icon-minus-circle"></use>
            </svg>
          </button>
-         <button class="btn--tiny btn--increase-servings">
+         <button class="btn--tiny btn--increase-servings" data-update-to="${this._data.serving + 1}">
            <svg>
              <use href="${icons}#icon-plus-circle"></use>
            </svg>
