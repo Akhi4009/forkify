@@ -53,7 +53,8 @@ export const loadSearchResults = async(query)=>{
                 image:rec.image_url
             }
         })
-        // console.log(state.search.result)
+    
+        state.search.page = 1;
         
     } catch (error) {
         console.log(error);
