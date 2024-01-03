@@ -89,11 +89,16 @@ state.recipe.serving = newServing;
 
 }
 
+const persistBookmark = function(){
+localStorage.setItem("bookmarks",JSON.stringify(state.bookmarks))
+}
+
 export const addBookmark = function(recipe){
     // add bookmark
     state.bookmarks.push(recipe);
 
     // mark current recipe as bookmark
+    persistBookmark();
 
     if(recipe.id === state.recipe.id) state.recipe.bookmarked = true;
 }
@@ -102,5 +107,13 @@ export const deleteBookmark = function(id){
     // delete bookmark
     const index = state.bookmarks.findIndex(ele => ele.id===id);
     state.bookmarks.splice(index,1);
+    persistBookmark();
   if (state.recipe.id === id) state.recipe.bookmarked = false;  
 }
+
+const init = function(){
+   const storage = localStorage.getItem("bookmarks");
+   if(storage) state.bookmarks = JSON.parse(storage);
+}
+init();
+console.log(state.bookmarks)
