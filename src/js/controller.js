@@ -6,6 +6,7 @@
  import 'core-js/stable';
  import 'regenerator-runtime/runtime'
  import paginationView from "./views/paginationView.js";
+ import addRecipeView from "./views/addRecipeView.js"
 
 
 // https://forkify-api.herokuapp.com/v2
@@ -112,16 +113,19 @@ const controlBookmars = function(){
    bookmarkView.render(model.state.bookmarks);
 }
 
-
+const controlAddRecipe = function(newRecipe){
+console.log(newRecipe);
+}
 
 
 const init = function(){
-bookmarkView.addHandlerRender(controlBookmars)
+bookmarkView.addHandlerRender(controlBookmars);
 recipeView.addHandlerRender(controlRecipes);
 recipeView.addHandlerUpdateServing(controlServing);
-recipeView.addHandlerAddBookmark(controlAddBookmark)
+recipeView.addHandlerAddBookmark(controlAddBookmark);
 searchView.addHandlerSearch(controlSearchResult);
 paginationView.addHandlerClick(controlPagination);
+addRecipeView.addHandlerUpload(controlAddRecipe);
 
 };
 
